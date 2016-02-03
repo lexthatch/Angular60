@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+</head>
+
+<body>
+
+  <div class="container" ng-controller="SimpleController">
+    <h3>Adding a Simple Controller</h3>
+    Name:
+    <br>
+    <input type="text" ng-model="name" /> {{name}}
+    <br>
+    
+    <ul>
+      <li ng-repeat="cust in customers | filter: name | orderBy:'name'">
+        {{cust.name}} - {{cust.city}}
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
