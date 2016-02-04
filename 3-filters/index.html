@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <title>Angular App</title>
 </head>
-<body ng-init="customers=[{name: 'Ken Wilcox', city: 'Boise'}, {name:'Matt Overall', city: 'Nampa'}, {name:'Jake Overall', city: 'Nampa'}]">
+<body ng-init="customers=[{name: 'Ken Wilcox', city: 'Boise', location: 'lost'}, {name:'Matt Overall', city: 'Nampa'}, {name:'Jake Overall', city: 'Nampa'}]">
   Name:
   <br>
   <input type="text" ng-model="name" /> {{name}}
   <br>
   <ul>
-    <li ng-repeat="cust in customers | filter:name | orderBy:'name'">{{cust.name | uppercase}} - {{cust.city | lowercase}}</li>
+    <li ng-repeat="cust in customers | filter:name | orderBy:'name'">{{cust.name | uppercase}} - {{cust.city | lowercase}} - {{cust.location}}</li>
   </ul>
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
