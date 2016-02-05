@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+</head>
+<body ng-init="customers=[{name: 'Ken Wilcox', city: ['Boise', 'Caldwell', 'Modesto']}, {name:'Matt Overall', city: ['Nampa', 'Caldwell']}, {name:'Jake Overall', city: ['Nampa', 'Boise']}]">
+  Name:
+  <br>
+  <input type="text" ng-model="nameFilter" /> {{nameFilter}}
+  <br>
+  City:
+  <br>
+  <input type="text" ng-model="cityFilter" /> {{cityFilter}}
+  <br>
+  <!-- This ng-show bit will hide customers that don't have a matching city -->
+  <!-- This filter just filters by name -->
+  <!-- Just repeat each customer -->
+  <ul ng-show="(cust.city | filter:cityFilter).length" ng-repeat="cust in customers | filter:{name: nameFilter} | orderBy:'name'">
+    <li>{{cust.name | uppercase}}</li>
+    <!-- Then each city -->
+    <ul ng-repeat="city in cust.city | filter:cityFilter">
+      <ui>{{city}}</li>
+    </ol>
+  </ul>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
