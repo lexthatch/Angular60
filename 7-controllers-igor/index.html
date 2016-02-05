@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+</head>
+
+<body>
+
+  <div class="container" ng-controller="SimpleController">
+    <h3>Adding a Simple Controller</h3>
+    <p>Igor, set the start to 4, then end to 5</p>
+    Start:
+    <br>
+    <!-- notice the min/max attributes -->
+    <input type="number" ng-model="start" min="0" max="{{max}}"/> {{start}}
+    <br>
+    End:
+    <br>
+    <!-- notice the min/max attributes -->
+    <input type="number" ng-model="end" min="0" max="{{max}}"/> {{end}}
+    <br>
+    
+    <ul>
+      <!-- just the + will sort in alphabetical order -->
+      <li ng-repeat="student in students | orderBy:'+'">
+        {{student}}
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
