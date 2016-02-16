@@ -4,6 +4,7 @@ var app = angular.module("app", []);
 app.controller("StarController", function($scope, $http) {
   $scope.stars = [];
   
+  // just do a get, like we did for current arrests
   $http.get("/starsData.csv").then(function (response) {
     // response.data is the csv file
     var data = response.data;
