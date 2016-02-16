@@ -6,3 +6,6 @@ This is using Canyon County's API here
 
 See if you can make it look better than the real thing here
 [http://www.canyonco.org/CurrentArrests](http://www.canyonco.org/CurrentArrests)
+
+This example uses Animation to go between views and it loads up the views so you will need to run
+this app on a web server. The easiest would be `http-server` installed via `npm`
