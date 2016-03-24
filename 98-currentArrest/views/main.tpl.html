@@ -1,0 +1,61 @@
+<div class="container" ng-controller="ArrestController">
+  <h3>A real life example</h3>
+  <div>
+    <form class="form-inline">
+      <label for="search" Search</label>
+        <input class="form-control" type="text" placeholder="Search..." ng-model="search">
+        <button type="reset" class="btn btn-primary">Reset</button>
+    </form>
+  </div>
+
+  <div ng-repeat="inmate in inmates | filter: search">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">ID #: {{inmate.IDNumber}} - {{inmate.LastName}}, {{inmate.FirstName}} {{inmate.MiddleName}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="col-md-5">
+            <div class="panel panel-default">
+              <div class="panel-heading">Charges</div>
+              <table class="table">
+                <tbody>
+                  <tr ng-repeat="charge in inmate.Charges">
+                    <td>{{charge.StatuteCode}} - {{charge.StatuteDesc}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="panel panel-default">
+              <div class="panel-heading">Arrests</div>
+              <table class="table">
+                <tbody>
+                  <tr ng-repeat="arrest in inmate.Arrests">
+                    <td>{{arrest.ArrestDate}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div>
+              <a ng-href="#/detail/{{$index}}">
+              <img ng-src="{{inmate.ImageThumb}}" ng-click="toggleImage(inmate)" class="img-rounded" alt="Picture of {{inmate.LastName}}, {{inmate.FirstName}} {{inmate.MiddleName}}"
+              title="{{inmate.LastName}}, {{inmate.FirstName}} {{inmate.MiddleName}}" />
+              </a>
+            </div>
+            <div>
+              <a ng-href="{{inmate.VineURL}}" target="_blank">VINELink</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

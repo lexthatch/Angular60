@@ -1,0 +1,46 @@
+<div class="panel panel-primary" ng-init="inmate = inmates[$routeParams.index]">
+  <div class="panel-heading">
+    <h3 class="panel-title">ID #: {{inmate.IDNumber}} - {{inmate.LastName}}, {{inmate.FirstName}} {{inmate.MiddleName}}</h3>
+  </div>
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <div>
+          <a ng-href="/detail/{{$index}}">
+            <img ng-src="{{inmate.ImageFull}}" ng-click="toggleImage(inmate)" class="img-rounded" alt="Picture of {{inmate.LastName}}, {{inmate.FirstName}} {{inmate.MiddleName}}"
+            title="{{inmate.LastName}}, {{inmate.FirstName}} {{inmate.MiddleName}}" />
+          </a>
+        </div>
+        <div>
+          <a ng-href="{{inmate.VineURL}}" target="_blank">VINELink</a>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">Charges</div>
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="charge in inmate.Charges">
+                <td>{{charge.StatuteCode}} - {{charge.StatuteDesc}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Arrests</div>
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="arrest in inmate.Arrests">
+                <td>{{arrest.ArrestDate}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
